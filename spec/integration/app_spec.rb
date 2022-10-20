@@ -43,4 +43,17 @@ RSpec.describe Application do
       expect(response.body).to eq('Alice,Joe,Julia,Kieran,Zoe')
     end
   end
+  
+  context "GET to /hello" do
+    it "contains a body" do
+      response = get('/hello')
+      expect(response.body).to include('<body>')
+    end
+    
+    it "returns the correct body" do
+      response = get('/hello', name: 'Lorenzo')
+      
+      expect(response.body).to eq("<html>\n  <head></head>\n  <body>\n    <h1>Hello! Lorenzo</h1>\n  </body>\n</html>")
+    end
+  end
 end
