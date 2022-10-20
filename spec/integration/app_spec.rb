@@ -42,15 +42,15 @@ RSpec.describe Application do
       expect(response.body).to eq('Thanks Dana, you sent this message: "Hello World"')
     end
   end
-  
-  context "POST to /sort-names" do
-    it "returns 200 OK with the right content" do
-      names = "Joe,Alice,Zoe,Julia,Kieran"
-      
-      response = post("/sort-names", names: names)
-      
+
+  context 'POST to /sort-names' do
+    it 'returns 200 OK with the right content' do
+      names = 'Joe,Alice,Zoe,Julia,Kieran'
+
+      response = post('/sort-names', names: names)
+
       expect(response.status).to eq(200)
-      expect(response.body).to eq("Alice,Joe,Julia,Kieran,Zoe")
+      expect(response.body).to eq('Alice,Joe,Julia,Kieran,Zoe')
     end
   end
 end
